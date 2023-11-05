@@ -10,7 +10,6 @@ def add_song(song_data):
 
 # 특정 키워드로 노래를 검색하는 함수
 def search_song_by_keyword(keyword):
-    #
     songs = collection.find({"keywords": keyword})
     song_list = [song["title"] for song in songs]
     return song_list
