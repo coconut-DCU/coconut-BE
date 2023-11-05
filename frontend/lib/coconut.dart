@@ -33,7 +33,7 @@ class _CameraExampleState extends State<CameraExample> {
       return; 
     }
 
-    final uri = Uri.parse('http://127.0.0.1:8000/upload');  // FastAPI 엔드포인트 URL
+    final uri = Uri.parse('http://127.0.0.1:8000/api/upload');  // FastAPI 엔드포인트 URL
     final request = http.MultipartRequest('POST', uri)
       ..files.add(await http.MultipartFile.fromPath('image', _image!.path));
 
