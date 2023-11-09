@@ -5,7 +5,7 @@ import uuid
 
 router = APIRouter()
 
-@router.post("/api/upload1")
+@router.post("/upload")
 async def upload_images(images: List[UploadFile] = File(...)):
     try:
         upload_folder = "images/"
