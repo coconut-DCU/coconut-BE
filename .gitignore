@@ -86,9 +86,6 @@ target/
 profile_default/
 ipython_config.py
 
-# 모델
-ml/
-
 # pyenv
 #   For a library or package, you might want to ignore these files since the code is
 #   intended to run in multiple environments; otherwise, check them in:
@@ -188,6 +185,10 @@ pyrightconfig.json
 pyvenv.cfg
 pip-selfcheck.json
 
-/images/
+# 이미지 디렉토리
+# /images/
+
+# 모델
+src/ml/Vit_model_best_epoch_2.pth
 
 # End of https://www.toptal.com/developers/gitignore/api/venv,python

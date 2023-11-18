@@ -4,7 +4,7 @@ from src.routes import picture
 from fastapi.logger import logger
 
 app = FastAPI()
-#app.include_router(img.router, prefix="/api", tags=["picture"])
+
 app.include_router(picture.router, prefix="/api", tags=["picture"])
 
 if __name__ == "__main__":
