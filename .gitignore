@@ -188,6 +188,6 @@ pyrightconfig.json
 pyvenv.cfg
 pip-selfcheck.json
 
-/images
+/images/
 
 # End of https://www.toptal.com/developers/gitignore/api/venv,python
