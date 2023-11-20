@@ -186,7 +186,7 @@ pyvenv.cfg
 pip-selfcheck.json
 
 # 이미지 디렉토리
-# /images/
+images/
 
 # 모델
 src/ml/Vit_model_best_epoch_2.pth
