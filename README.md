@@ -3,13 +3,14 @@
 ### 1. 가상환경 설정
 ```bash
 python -m venv venv
-pip install --upgrade pip
 
 # Window OS
 venv/Scripts/activate
 
 # MacOS, Linux
 source venv/bin/activate
+
+pip install --upgrade pip
 ```
 
 ### 2. 모듈 설치
