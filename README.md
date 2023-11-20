@@ -2,12 +2,13 @@
 
 ### 1. 가상환경 설정
 ```bash
+python -m venv venv
+pip install --upgrade pip
+
 # Window OS
-python -m venv venv  
 venv/Scripts/activate
 
 # MacOS, Linux
-python -m venv venv
 source venv/bin/activate
 ```
 
