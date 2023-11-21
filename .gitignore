@@ -193,4 +193,5 @@ src/ml/Vit_model_best_epoch_2.pth
 
 # csv파일
 song_table3.csv
+tag_table3.csv
 # End of https://www.toptal.com/developers/gitignore/api/venv,python
