@@ -6,21 +6,14 @@ import sys, os
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from settings import path
 
-# 설정 값
-model_path = 'src/ml/Vit_model_best_epoch_2.pth'
-tag_table_path = 'csv/tag_table3.csv'
-song_table_path = 'csv/song_table3.csv'
-image_path = 'images/dw2.jpg'
-
-
 # 이미지 프로세서 인스턴스를 생성합니다.
-image_processor = ImageProcessor(model_path=model_path)
+image_processor = ImageProcessor(model_path=path.MODEL_PATH)
 
 # 이미지에서 태그를 추출합니다.
-query_tags = image_processor.extract_tags(image_path=image_path)
+query_tags = image_processor.extract_tags(image_path=path.IMG_PATH+"/image_3.jpg")
 
 # 유사성 검색 인스턴스를 생성합니다.
-similarity_search = SimilaritySearch(tag_table_path=tag_table_path)
+similarity_search = SimilaritySearch(tag_table_path=path.TAG_TABLE_PATH)
 
 # FAISS 인덱스를 빌드합니다.
 similarity_search.build_index()
@@ -30,7 +23,7 @@ similar_playlists_songs_ids = similarity_search.search_similar_playlists(query_t
 
 # 각 playlist_songs_ids에 대해 get_top_songs을 호출하고 결과를 합칩니다.
 all_top_songs = pd.DataFrame()
-song_recommender = RecommendSongs(song_table_path=song_table_path)
+song_recommender = RecommendSongs(song_table_path=path.SONG_TABLE_PATH)
 song_recommender.load_songs()
 
 for playlist_songs_ids_str in similar_playlists_songs_ids:
