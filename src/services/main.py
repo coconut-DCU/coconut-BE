@@ -2,6 +2,9 @@ from image_processing import ImageProcessor
 from recommend_playlist_songs import SimilaritySearch
 from recommend_song_detail import RecommendSongs
 import pandas as pd
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from settings import path
 
 # 설정 값
 model_path = 'src/ml/Vit_model_best_epoch_2.pth'
