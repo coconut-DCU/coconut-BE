@@ -10,7 +10,5 @@ def save_uploded_images(images="images", dir_name="images/"):
             _, file_extension = os.path.splitext(image.filename)
             unique_filename = f"image_{existing_files + i}{file_extension}"
             
-            print(unique_filename)
-            
             with open(os.path.join(dir_name, unique_filename), "wb") as f:
                 f.write(image.file.read())
