@@ -3,6 +3,8 @@ import os
 from fastapi import APIRouter, UploadFile, File
 from typing import List
 
+from ulits import image_module
+
 router = APIRouter()
 
 @router.post("/upload")
