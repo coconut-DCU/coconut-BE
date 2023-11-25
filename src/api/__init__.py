@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 
-from src.api import image
+from src.api import song
 
 router = APIRouter()
-router.include_router(image.router, prefix="/api", tags=["image"])
+router.include_router(song.router, prefix="/api", tags=["image"])
 
 __all__ = ["router"]
