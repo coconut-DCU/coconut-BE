@@ -1,7 +1,7 @@
 import uvicorn
+
 from fastapi import FastAPI
 from src.routes import picture
-from fastapi.logger import logger
 
 app = FastAPI()
 
