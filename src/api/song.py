@@ -6,6 +6,7 @@ from ..services.image_to_song import *
 
 router = APIRouter()
 
+
 @router.post("/upload")
 async def get_songs_title(images: List[UploadFile] = File(...)):
     create_upload_dir()
