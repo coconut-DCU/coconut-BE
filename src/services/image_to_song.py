@@ -3,6 +3,7 @@ from .recommend_playlist_songs import SimilaritySearch
 from .recommend_song_detail import RecommendSongs
 import pandas as pd
 import sys, os
+import json 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from settings import path
 
@@ -25,6 +26,13 @@ def get_recommend_songs():
 
     # 입력된 모든 이미지의 태그에 대해 공통 태그를 찾습니다.
     common_query_tags = get_common_tags(extracted_tags)
+    
+    # class_idx_to_label JSON 파일을 로드합니다.
+    with open(path.IDX_JSON_PATH, 'r', encoding='utf-8') as json_file:
+        class_idx_to_label = json.load(json_file)
+
+    # 태그를 레이블로 매핑합니다.
+    common_query_labels = [class_idx_to_label[str(idx)] for idx, value in enumerate(common_query_tags) if value == 1]
 
     # 유사성 검색 인스턴스를 생성합니다.
     similarity_search = SimilaritySearch(tag_table_path=path.TAG_TABLE_PATH)
@@ -52,4 +60,5 @@ def get_recommend_songs():
 
     # 추천된 곡 정보를 출력합니다.
     print(common_query_tags)
+    print(common_query_labels)
     print(all_top_songs)
