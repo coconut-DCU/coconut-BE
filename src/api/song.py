@@ -6,11 +6,12 @@ from ..services.image_to_song import *
 
 router = APIRouter()
 
+
 @router.post("/upload")
 async def get_songs_title(images: List[UploadFile] = File(...)):
     initialize_upload_directory()
     try:
-        save_uploded_images(images)
+        save_images_to_directory(images)
         get_recommend_songs()
         return {"message": f"{len(images)} images uploaded successfully"}
     except Exception as e:

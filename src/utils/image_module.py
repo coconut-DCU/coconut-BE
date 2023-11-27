@@ -15,7 +15,7 @@ def initialize_upload_directory():
     create_upload_directory()
     delete_files_in_directory(IMG_PATH)
 
-def save_uploded_images(images="images", dir_name="images/"):
+def save_images_to_directory(images="images", dir_name="images/"):
     existing_files = len([f for f in os.listdir(dir_name) if f.startswith("image_")])
     
     for i, image in enumerate(images, 1):

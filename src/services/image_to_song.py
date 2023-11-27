@@ -24,7 +24,9 @@ def get_recommend_songs():
     # 이미지 프로세서 인스턴스를 생성합니다.
     image_processor = ImageProcessor(model_path=path.MODEL_PATH)
     
+    #file = [image.filename for image in images]
     # 이미지의 경로를 정의합니다. 여러개 가능
+    
     image_paths = [path.IMG_PATH+"/image_1.jpg", path.IMG_PATH+"/image_2.jpg", path.IMG_PATH+"/image_3.jpg"]
 
     # 각 이미지의 태그를 추출합니다.
