@@ -5,7 +5,7 @@ import pandas as pd
 import sys, os
 import json 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
-from settings import path
+from settings.path import *
 
 def get_filtered_tags(tags_list, min_count):
     """
@@ -22,12 +22,12 @@ def get_filtered_tags(tags_list, min_count):
 
 def get_recommend_songs():
     # 이미지 프로세서 인스턴스를 생성합니다.
-    image_processor = ImageProcessor(model_path=path.MODEL_PATH)
+    image_processor = ImageProcessor(model_path=MODEL_PATH)
     
     #file = [image.filename for image in images]
     # 이미지의 경로를 정의합니다. 여러개 가능
     
-    image_paths = [path.IMG_PATH+"/image_1.jpg", path.IMG_PATH+"/image_2.jpg", path.IMG_PATH+"/image_3.jpg"]
+    image_paths = [IMG_PATH+"/image_1.jpg", IMG_PATH+"/image_2.jpg", IMG_PATH+"/image_3.jpg"]
 
     # 각 이미지의 태그를 추출합니다.
     extracted_tags = [image_processor.extract_tags(image_path=image_path) for image_path in image_paths]
@@ -37,14 +37,14 @@ def get_recommend_songs():
     filtered_query_tags = get_filtered_tags(extracted_tags, min_count)
 
     # class_idx_to_label JSON 파일을 로드합니다.
-    with open(path.IDX_JSON_PATH, 'r', encoding='utf-8') as json_file:
+    with open(IDX_JSON_PATH, 'r', encoding='utf-8') as json_file:
         class_idx_to_label = json.load(json_file)
 
     # 태그를 레이블로 매핑합니다.
     filtered_query_labels = [class_idx_to_label[str(idx)] for idx, value in enumerate(filtered_query_tags) if value == 1]
 
     # 유사성 검색 인스턴스를 생성합니다.
-    similarity_search = SimilaritySearch(tag_table_path=path.TAG_TABLE_PATH)
+    similarity_search = SimilaritySearch(tag_table_path=TAG_TABLE_PATH)
 
     # FAISS 인덱스를 빌드합니다.
     similarity_search.build_index()
@@ -54,7 +54,7 @@ def get_recommend_songs():
 
     # 각 playlist_songs_ids에 대해 get_top_songs을 호출하고 결과를 합칩니다.
     all_top_songs = pd.DataFrame()
-    song_recommender = RecommendSongs(song_table_path=path.SONG_TABLE_PATH)
+    song_recommender = RecommendSongs(song_table_path=SONG_TABLE_PATH)
     song_recommender.load_songs()
 
     for playlist_songs_ids_str in similar_playlists_songs_ids:
