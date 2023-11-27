@@ -8,7 +8,7 @@ router = APIRouter()
 
 @router.post("/upload")
 async def get_songs_title(images: List[UploadFile] = File(...)):
-    init_images_dir()
+    initialize_upload_directory()
     try:
         save_uploded_images(images)
         get_recommend_songs()
