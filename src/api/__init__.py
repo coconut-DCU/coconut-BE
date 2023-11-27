@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-
 from src.api import song
 
 router = APIRouter()

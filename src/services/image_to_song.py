@@ -25,7 +25,7 @@ def get_recommend_songs():
     image_processor = ImageProcessor(model_path=path.MODEL_PATH)
     
     # 이미지의 경로를 정의합니다. 여러개 가능
-    image_paths = [path.IMG_PATH+"/image_1.jpg", path.IMG_PATH+"/image_2.jpg", path.IMG_PATH+"/image_3.png"]
+    image_paths = [path.IMG_PATH+"/image_1.jpg", path.IMG_PATH+"/image_2.jpg", path.IMG_PATH+"/image_3.jpg"]
 
     # 각 이미지의 태그를 추출합니다.
     extracted_tags = [image_processor.extract_tags(image_path=image_path) for image_path in image_paths]
