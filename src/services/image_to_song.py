@@ -20,9 +20,12 @@ def get_filtered_tags(tags_list, min_count):
     filtered_tags = [1 if count >= min_count else 0 for count in sum_of_tags]
     return filtered_tags
 
-def get_recommend_songs():
+def get_recommend_songs(images):
     # 이미지 프로세서 인스턴스를 생성합니다.
     image_processor = ImageProcessor(model_path=MODEL_PATH)
+    
+    #file = [image.filename for image in images]
+    # 이미지의 경로를 정의합니다. 여러개 가능
     
     image_paths = [IMG_PATH+"/image_1.jpg", IMG_PATH+"/image_2.jpg", IMG_PATH+"/image_3.jpg"]
 
@@ -68,10 +71,3 @@ def get_recommend_songs():
     print(filtered_query_tags)
     print(filtered_query_labels)
     print(all_top_songs)
-    
-    
-image_paths1= [image for image in os.listdir(IMG_PATH)]
-image_paths2 = [IMG_PATH+"/image_1.jpg", IMG_PATH+"/image_2.jpg", IMG_PATH+"/image_3.jpg"]
-
-print(image_paths1)
-print(image_paths2)

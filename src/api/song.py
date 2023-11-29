@@ -12,7 +12,11 @@ async def get_songs_title(images: List[UploadFile] = File(...)):
     initialize_upload_directory()
     try:
         save_images_to_directory(images)
-        get_recommend_songs()
+        
+        # file = [image.filename for image in images]
+        # print(file)
+        
+        get_recommend_songs(images)
         return {"message": f"{len(images)} images uploaded successfully"}
     except Exception as e:
         return {"error": f"Failed to upload images: {e}"}
