@@ -3,6 +3,7 @@ from typing import List
 
 from ..utils.image_module import *
 from ..services.image_to_song import *
+from ..services import spotify
 
 router = APIRouter()
 
@@ -15,8 +16,8 @@ async def get_songs_title(images: List[UploadFile] = File(...)):
         
         # file = [image.filename for image in images]
         # print(file)
+        spotify.test2()
         
-        get_recommend_songs(images)
         return {"message": f"{len(images)} images uploaded successfully"}
     except Exception as e:
         return {"error": f"Failed to upload images: {e}"}

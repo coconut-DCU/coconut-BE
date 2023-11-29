@@ -20,7 +20,7 @@ def get_filtered_tags(tags_list, min_count):
     filtered_tags = [1 if count >= min_count else 0 for count in sum_of_tags]
     return filtered_tags
 
-def get_recommend_songs(images):
+def get_recommend_songs():
     # 이미지 프로세서 인스턴스를 생성합니다.
     image_processor = ImageProcessor(model_path=MODEL_PATH)
     
@@ -71,7 +71,9 @@ def get_recommend_songs(images):
     songs_dict = {row['SONG_TITLE']: row['ARTIST_NAME'] for _, row in all_top_songs.iterrows()}
 
     # 추천된 곡 정보를 출력합니다.
-    print(songs_dict)
-    print(filtered_query_tags)
-    print(filtered_query_labels)
-    print(all_top_songs)
+    # print(songs_dict)
+    # print(filtered_query_tags)
+    # print(filtered_query_labels)
+    # print(all_top_songs)
+    #print(songs_dict)
+    return songs_dict

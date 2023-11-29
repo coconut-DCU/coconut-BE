@@ -2,6 +2,7 @@ import requests
 import base64
 
 from ..settings.spotify_config import *
+from .image_to_song import get_recommend_songs
 
 def get_access_token(client_id, client_secret):
     encoded = base64.b64encode(f"{client_id}:{client_secret}".encode('utf-8')).decode('ascii')
@@ -29,19 +30,28 @@ album_info = {
 
 url_list = []
 
-for song, artist in album_info.items():
-    track_query = f"{artist} {song}"
-    track_data = search_spotify(track_query, "track", access_token)
+def test(di):
+    sample = di
+    print(sample)
 
-    if track_data:
-        print(f"Track Name: {track_data['name']}")
-        print(f"Artist Name: {', '.join(artist['name'] for artist in track_data['artists'])}")
-        
-        print(f"Preview URL: {track_data['preview_url']}" if 'preview_url' in track_data else "No preview available")
-        url_list.append(track_data['preview_url'])
-    else:
-        print(f"No results found for '{song}' by '{artist}'")
-    print()
+
+# 여기에 똑같이 딕셔너리를 인자값으로 넣어줍니다.
+def test2():
+    # 이렇게 넣는게 맞지않나요?
+    album_info = get_recommend_songs()
+    for song, artist in album_info.items():
+        track_query = f"{artist} {song}"
+        track_data = search_spotify(track_query, "track", access_token)
+
+        if track_data:
+            # print(f"Track Name: {track_data['name']}")
+            # print(f"Artist Name: {', '.join(artist['name'] for artist in track_data['artists'])}")
+            
+            # print(f"Preview URL: {track_data['preview_url']}" if 'preview_url' in track_data else "No preview available")
+            url_list.append(track_data['preview_url'])
+        else:
+            print(f"No results found for '{song}' by '{artist}'")
+    print(url_list)
 
 # print("----url----")
 # print(url_list)
