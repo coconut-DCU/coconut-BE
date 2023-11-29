@@ -66,8 +66,12 @@ def get_recommend_songs(images):
 
     # 전체 top_songs에서 인기도에 따라 상위 5곡을 다시 추출합니다.
     all_top_songs = all_top_songs.sort_values(by='popularity', ascending=False).head(5)
+    
+    # 곡 제목과 아티스트 이름으로 구성된 딕셔너리 생성
+    songs_dict = {row['SONG_TITLE']: row['ARTIST_NAME'] for _, row in all_top_songs.iterrows()}
 
     # 추천된 곡 정보를 출력합니다.
+    print(songs_dict)
     print(filtered_query_tags)
     print(filtered_query_labels)
     print(all_top_songs)
