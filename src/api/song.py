@@ -16,7 +16,7 @@ async def get_songs_title(images: List[UploadFile] = File(...)):
         
         # file = [image.filename for image in images]
         # print(file)
-        spotify.test2()
+        spotify.get_song_urls()
         
         return {"message": f"{len(images)} images uploaded successfully"}
     except Exception as e:

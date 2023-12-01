@@ -36,8 +36,7 @@ def test(di):
 
 
 # 여기에 똑같이 딕셔너리를 인자값으로 넣어줍니다.
-def test2():
-    # 이렇게 넣는게 맞지않나요?
+def get_song_urls():
     album_info = get_recommend_songs()
     for song, artist in album_info.items():
         track_query = f"{artist} {song}"
