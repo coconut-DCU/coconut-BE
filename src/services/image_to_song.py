@@ -5,6 +5,8 @@ import pandas as pd
 import sys, os
 import json 
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+
+from ..utils import image_module
 from settings.path import *
 
 def get_filtered_tags(tags_list, min_count):
@@ -27,8 +29,9 @@ def get_recommend_songs():
     #file = [image.filename for image in images]
     # 이미지의 경로를 정의합니다. 여러개 가능
     
-    image_paths = [IMG_PATH+"/image_1.jpg", IMG_PATH+"/image_2.jpg", IMG_PATH+"/image_3.jpg"]
-
+    #image_paths = [IMG_PATH+"/image_1.jpg", IMG_PATH+"/image_2.jpg", IMG_PATH+"/image_3.jpg"]
+    image_paths = image_module.to_list()
+    
     # 각 이미지의 태그를 추출합니다.
     extracted_tags = [image_processor.extract_tags(image_path=image_path) for image_path in image_paths]
 

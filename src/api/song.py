@@ -7,7 +7,6 @@ from ..services import spotify
 
 router = APIRouter()
 
-
 @router.post("/upload")
 async def get_songs_title(images: List[UploadFile] = File(...)):
     initialize_upload_directory()

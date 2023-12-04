@@ -23,4 +23,9 @@ def save_images_to_directory(images="images", dir_name="images/"):
             unique_filename = f"image_{existing_files + i}{file_extension}"
             
             with open(os.path.join(dir_name, unique_filename), "wb") as f:
-                f.write(image.file.read())      
+                f.write(image.file.read())
+                
+def to_list():
+    img_list = os.listdir(IMG_PATH)
+    full_img_list = [IMG_PATH + "/" + image for image in img_list]
+    return full_img_list

@@ -28,8 +28,6 @@ album_info = {
     "다이너마이트": "BTS"
 }
 
-url_list = []
-
 def test(di):
     sample = di
     print(sample)
@@ -37,6 +35,7 @@ def test(di):
 
 # 여기에 똑같이 딕셔너리를 인자값으로 넣어줍니다.
 def get_song_urls():
+    url_list = []
     album_info = get_recommend_songs()
     for song, artist in album_info.items():
         track_query = f"{artist} {song}"
