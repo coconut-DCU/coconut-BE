@@ -12,9 +12,6 @@ async def get_songs_title(images: List[UploadFile] = File(...)):
     initialize_upload_directory()
     try:
         save_images_to_directory(images)
-        
-        # file = [image.filename for image in images]
-        # print(file)
         spotify.get_song_urls()
         
         return {"message": f"{len(images)} images uploaded successfully"}
