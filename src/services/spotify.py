@@ -49,7 +49,8 @@ def get_song_urls():
             url_list.append(track_data['preview_url'])
         else:
             print(f"No results found for '{song}' by '{artist}'")
-    print(url_list)
+    print(f"urls: {url_list}")
+    return url_list
 
 # print("----url----")
 # print(url_list)

@@ -12,8 +12,8 @@ async def get_songs_title(images: List[UploadFile] = File(...)):
     initialize_upload_directory()
     try:
         save_images_to_directory(images)
-        spotify.get_song_urls()
+        song_urls = spotify.get_song_urls()
         
-        return {"message": f"{len(images)} images uploaded successfully"}
+        return {"message": f"{len(images)} images uploaded successfully", "song_urls": song_urls}
     except Exception as e:
         return {"error": f"Failed to upload images: {e}"}
