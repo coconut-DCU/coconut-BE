@@ -193,4 +193,6 @@ ml
 
 # csv파일
 csv
+
+config.ini
 # End of https://www.toptal.com/developers/gitignore/api/venv,python
